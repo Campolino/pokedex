@@ -1,14 +1,20 @@
 import './App.css'
+import { useState, useEffect } from 'react'
 import Greetings from './components/Greetings'
-import Pokemons from './components/Pokemons'
 
 function App() {
-  const pokemon = () => Pokemons()
-  console.log(pokemon)
+  const [pokemon, setPokemon] = useState("Chicorrita")
+
+  useEffect(() => {
+    fetch("https://pokeapi.co/api/v2/pokemon/pichu")
+      .then(res => res.json())
+      .then(data => setPokemon(data.name.toUpperCase()))
+  }, []);
+
   return (
     <>
       <Greetings name="Lagarta" />
-      <h2>{pokemon}</h2>
+      <h2>Your pokemon is {pokemon}</h2>
     </>
   )
 }
