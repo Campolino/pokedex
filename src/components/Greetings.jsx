@@ -1,8 +1,8 @@
 import { greetings } from './Greetings.module.css'
 
-const Greetings = ({name}) => {
+const Greetings = () => {
   return (
-    <h1 className={greetings}>Hello {name} it's great to have you here.</h1>
+    <h1 className={greetings}>Hello there! This is your Pokedex.</h1>
   )
 }
 

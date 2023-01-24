@@ -2,19 +2,23 @@ import './App.css'
 import { useState, useEffect } from 'react'
 import Greetings from './components/Greetings'
 
-function App() {
+const App = () => {
   const [pokemon, setPokemon] = useState("Chicorrita")
 
   useEffect(() => {
     fetch("https://pokeapi.co/api/v2/pokemon/pichu")
       .then(res => res.json())
-      .then(data => setPokemon(data.name.toUpperCase()))
+      .then(data => {
+        setPokemon(data.name.toUpperCase())
+      })
   }, []);
 
   return (
     <>
-      <Greetings name="Lagarta" />
-      <h2>Your pokemon is {pokemon}</h2>
+      <main className='container'>
+        <Greetings />
+        <h2>Your pokemon is {pokemon}</h2>
+      </main>
     </>
   )
 }
