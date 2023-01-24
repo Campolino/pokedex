@@ -3,10 +3,12 @@ import Greetings from './components/Greetings'
 import Pokemons from './components/Pokemons'
 
 function App() {
-  console.log(Greetings)
+  const pokemon = () => Pokemons()
+  console.log(pokemon)
   return (
     <>
       <Greetings name="Lagarta" />
+      <h2>{pokemon}</h2>
     </>
   )
 }
